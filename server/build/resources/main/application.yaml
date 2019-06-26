@@ -1,0 +1,3 @@
+iyre:
+  datasource:
+    location: /tmp/iyre.db

@@ -1,0 +1,3 @@
+lyre:
+  datasource:
+    location: /tmp/lyre.db
