@@ -1,4 +1,4 @@
-import { CounterState, INCREMENT_COUNT } from './types';
+import {INCREMENT_COUNT} from './types';
 
 export function incrementCount() {
   return {

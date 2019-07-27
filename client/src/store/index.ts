@@ -1,17 +1,19 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import {createStore, combineReducers, applyMiddleware} from "redux";
 import thunkMiddleware from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
+import {composeWithDevTools} from "redux-devtools-extension";
 
-import { counterReducer } from "./counter/reducer";
+import {counterReducer} from "./counter/reducer";
+import {playerReducer} from "./player/reducer";
 
 const rootReducer = combineReducers({
-  counter: counterReducer
+  counter: counterReducer,
+  player: playerReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
 
 export default function configureStore() {
-  const middlewares = [ thunkMiddleware ];
+  const middlewares = [thunkMiddleware];
   const middleWareEnhancer = applyMiddleware(...middlewares);
 
   const store = createStore(
