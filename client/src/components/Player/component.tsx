@@ -1,12 +1,14 @@
 import React from 'react';
 import {Button, List, Picker, Stepper, WhiteSpace, WingBlank} from 'antd-mobile';
-import {updateDuration} from '../../store/player/actions';
+import {updateDuration, selectTonic, selectTonality} from '../../store/player/actions';
 import {PlayerState} from "../../store/player/types";
 import './style.css';
 import {AudioSynth} from "../../audio/AudioSynth";
 
 interface PlayerProps {
   updateDuration: typeof updateDuration,
+  selectTonic: typeof selectTonic,
+  selectTonality: typeof selectTonality,
   player: PlayerState
 }
 
@@ -36,15 +38,29 @@ export class Player extends React.Component<PlayerProps> {
     this.props.updateDuration(duration);
   };
 
+  selectTonality = (tonality: number[]) => {
+    this.props.selectTonality(tonality[0]);
+  };
+
+  selectTonic = (tonic: number[]) => {
+    this.props.selectTonic(tonic[0]);
+  };
+
   render() {
     return (
       <div className="Player">
         <List className="picker-list">
 
-          <Picker data={tonalityData} cols={1} className="forss">
+          <Picker data={tonalityData}
+                  value={[this.props.player.tonality]}
+                  onOk={this.selectTonality}
+                  cols={1} className="forss">
             <List.Item arrow="horizontal">Tonality</List.Item>
           </Picker>
-          <Picker data={tonicData} cols={1} className="forss">
+          <Picker data={tonicData}
+                  value={[this.props.player.tonic]}
+                  onOk={this.selectTonic}
+                  cols={1} className="forss">
             <List.Item arrow="horizontal">Tonic</List.Item>
           </Picker>
 

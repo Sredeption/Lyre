@@ -1,4 +1,4 @@
-import {PlayerActionTypes, UPDATE_DURATION} from "./types";
+import {PlayerActionTypes, SELECT_TONALITY, SELECT_TONIC, UPDATE_DURATION} from "./types";
 
 export function updateDuration(duration: number): PlayerActionTypes {
 
@@ -9,6 +9,19 @@ export function updateDuration(duration: number): PlayerActionTypes {
 
 }
 
-export function selectTonic() {
+export function selectTonic(tonic: number): PlayerActionTypes {
+
+  return {
+    type: SELECT_TONIC,
+    tonic: tonic
+  }
+
+}
+
+export function selectTonality(tonality: number): PlayerActionTypes {
+  return {
+    type: SELECT_TONALITY,
+    tonality: tonality
+  }
 
 }

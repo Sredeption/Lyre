@@ -2,7 +2,7 @@ import {Player} from "./component";
 
 import {AppState} from "../../store";
 import {connect} from "react-redux";
-import {updateDuration} from "../../store/player/actions";
+import {selectTonality, selectTonic, updateDuration} from "../../store/player/actions";
 
 const mapStateToProps = (state: AppState) => ({
   player: state.player
@@ -10,6 +10,6 @@ const mapStateToProps = (state: AppState) => ({
 
 export default connect(
   mapStateToProps,
-  {updateDuration}
+  {updateDuration, selectTonic, selectTonality}
 )(Player);
 

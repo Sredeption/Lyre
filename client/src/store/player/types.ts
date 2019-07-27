@@ -18,4 +18,11 @@ interface SelectTonic {
   tonic: number;
 }
 
-export type PlayerActionTypes = UpdateDuration | SelectTonic;
+export const SELECT_TONALITY = 'SELECT_TONALITY ';
+
+interface SelectTonality {
+  type: typeof SELECT_TONALITY;
+  tonality: number;
+}
+
+export type PlayerActionTypes = UpdateDuration | SelectTonic | SelectTonality;
