@@ -1,31 +1,36 @@
 import React from 'react';
-import {Icon, List, NavBar, Picker, Stepper} from 'antd-mobile';
+import {Button, List, Picker, Stepper, WhiteSpace, WingBlank} from 'antd-mobile';
 import {updateDuration} from '../../store/player/actions';
 import {PlayerState} from "../../store/player/types";
 import './style.css';
+import {AudioSynth} from "../../audio/AudioSynth";
 
 interface PlayerProps {
   updateDuration: typeof updateDuration,
   player: PlayerState
 }
 
+const tonalityData = [
+  {
+    label: 'Major',
+    value: 1
+  },
+  {
+    label: 'Harmonic Minor',
+    value: 2
+  },
+  {
+    label: 'Melodic Minor',
+    value: 3
+  }
+];
+
+const tonicData = AudioSynth._notes.map((label: string, index: number) => {
+  return {label: label, value: index}
+});
+
 export class Player extends React.Component<PlayerProps> {
 
-
-  tonalities = [
-    {
-      label: 'Major',
-      value: 1
-    },
-    {
-      label: 'Harmonic Minor',
-      value: 2
-    },
-    {
-      label: 'Melodic Minor',
-      value: 3
-    }
-  ];
 
   updateDuration = (duration: number) => {
     this.props.updateDuration(duration);
@@ -34,21 +39,12 @@ export class Player extends React.Component<PlayerProps> {
   render() {
     return (
       <div className="Player">
-        <NavBar
-          mode="dark"
-          leftContent="Back"
-          rightContent={[
-            <Icon key="1" type="ellipsis"/>,
-          ]}
-        >NavBar
-        </NavBar>
-
         <List className="picker-list">
 
-          <Picker data={this.tonalities} cols={1} className="forss">
+          <Picker data={tonalityData} cols={1} className="forss">
             <List.Item arrow="horizontal">Tonality</List.Item>
           </Picker>
-          <Picker data={this.tonalities} cols={1} className="forss">
+          <Picker data={tonicData} cols={1} className="forss">
             <List.Item arrow="horizontal">Tonic</List.Item>
           </Picker>
 
@@ -66,6 +62,10 @@ export class Player extends React.Component<PlayerProps> {
             Duration
           </List.Item>
         </List>
+        <WhiteSpace/>
+        <WingBlank>
+          <Button type="primary">Play</Button>
+        </WingBlank>
       </div>
     );
   }

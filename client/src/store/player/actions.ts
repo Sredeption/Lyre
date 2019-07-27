@@ -8,3 +8,7 @@ export function updateDuration(duration: number): PlayerActionTypes {
   }
 
 }
+
+export function selectTonic() {
+
+}

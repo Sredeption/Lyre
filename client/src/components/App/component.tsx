@@ -4,6 +4,7 @@ import {incrementCount} from '../../store/counter/actions';
 import {CounterState} from '../../store/counter/types';
 import './style.css';
 import Player from '../Player'
+import {Icon, NavBar} from "antd-mobile";
 
 
 interface AppProps {
@@ -20,6 +21,15 @@ class App extends React.Component<AppProps> {
   render() {
     return (
       <div>
+        <NavBar
+          mode="dark"
+          leftContent="Back"
+          rightContent={[
+            <Icon key="1" type="ellipsis"/>,
+          ]}
+        >
+          NavBar
+        </NavBar>
         <Player/>
       </div>
     );

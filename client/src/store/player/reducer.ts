@@ -1,11 +1,9 @@
-import {
-  PlayerState,
-  UPDATE_DURATION,
-  PlayerActionTypes
-} from "./types";
+import {PlayerActionTypes, PlayerState, SELECT_TONIC, UPDATE_DURATION} from "./types";
 
 const initialState: PlayerState = {
-  duration: 1
+  duration: 1,
+  tonic: 0,
+  tonality: 0,
 };
 
 export function playerReducer(
@@ -17,6 +15,11 @@ export function playerReducer(
       return {
         ...state,
         duration: action.duration
+      };
+    case SELECT_TONIC:
+      return {
+        ...state,
+        tonic: action.tonic
       };
     default:
       return state;
