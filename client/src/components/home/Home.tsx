@@ -92,21 +92,6 @@ export class Home extends React.Component<HomeProps> {
             Duration
           </List.Item>
 
-          <List.Item
-            wrap
-            extra={
-              <Stepper
-                showNumber
-                max={1}
-                min={0}
-                step={0.1}
-                value={player.volume}
-                onChange={this.updateVolume}
-                disabled={player.playing}
-              />}
-          >
-            Volume
-          </List.Item>
         </List>
         <WhiteSpace/>
         <WingBlank>

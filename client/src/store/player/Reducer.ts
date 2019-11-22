@@ -15,7 +15,7 @@ import {AudioSynth} from "../../audio/AudioSynth";
 
 const synth = new AudioSynth();
 const piano = synth.create("piano");
-synth.volume = 0.5;
+synth.volume = 1;
 
 const initialState: PlayerState = {
   tonic: 0,
