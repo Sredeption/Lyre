@@ -11,7 +11,6 @@ export class App extends React.Component {
           <img src={lyra} style={{ width: 20, marginRight: 8, color: "white" }}/>Lyre
         </NavBar>
         <Home/>
-
       </div>
     )
   }
