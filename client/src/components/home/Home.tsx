@@ -4,6 +4,7 @@ import {play, selectTonality, selectTonic, stop, updateDuration, updateVolume} f
 import {PlayerState} from "../../store/player/Types";
 import './Style.css';
 import {AudioSynth} from "../../audio/AudioSynth";
+import background from "./background.png"
 
 interface HomeProps {
   updateDuration: typeof updateDuration,
@@ -105,6 +106,9 @@ export class Home extends React.Component<HomeProps> {
               <Button type="primary" onClick={play}>Play</Button>
           }
         </WingBlank>
+        <div className="footer">
+          <img className="footer-img" src={background}></img>
+        </div>
       </div>
     );
   }
